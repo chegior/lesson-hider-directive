@@ -1,3 +1,3 @@
-angular.module('lessonService').service('lessonService',function(){
-  
+angular.module('directivePractice').service('lessonService',function(){
+
 })

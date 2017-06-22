@@ -1,7 +1,8 @@
-angular.mododule('directivePractice').directive('lessonHider',function(){
+angular.module('directivePractice').directive('lessonHider',function(){
 
   return{
-
+    templateUrl: '../lessonHider.html',
+    restrict: 'E'
   }
 
 })
