@@ -1,3 +1,5 @@
 angular.module('directivePractice').controller('lessonCtrl',function($scope){
-  $scope.test = 'HELLO THIS TEST';
+  $scope.arrLessons = ['Services', 'Routing', 'Directives', 'Review', 'Firebase', 'No server project', 'Node', 'Express', 'Mongo'];
+  $scope.test = 'two way data binding';
+
 });
