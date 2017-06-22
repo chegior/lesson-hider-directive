@@ -4,13 +4,30 @@ angular.module('directivePractice').directive('lessonHider',function(){
     templateUrl: '../lessonHider.html',
     restrict: 'E',
     scope:{
-      lesson:'='
+      lesson:'=',
+      dayAlert:'&'
+
+    },
+    controller:function($scope, lessonService){
+      $scope.getSchedule = lessonService.getSchedule();
+
     },
     link: function(scope,element, attr){
-      // console.log('SCOPE: ' + scope);
-      // console.log('ELEMENT: '+element);
-      // console.log('ATTRIBUTE: ' + attr);
+
+      scope.getSchedule.then(function( response ) {
+         scope.schedule = response.data;
+         scope.schedule.forEach(function(scheduleDay){
+           if(scheduleDay.lesson === scope.lesson){
+             console.log('match');
+             scope.lessonDay = scheduleDay.weekday;
+             element.css('text-decoration', 'line-through')
+             return;
+           }
+         });
+
+
+      });
     }
   }
 
-})
+});
